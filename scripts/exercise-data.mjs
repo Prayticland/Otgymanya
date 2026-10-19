@@ -20,3 +20,17 @@ export function recordedExercises(workoutRows, catalogRows) {
     return [id, name];
   });
 }
+
+export function mergeCatalogueRows(existingRows, derivedRows) {
+  const byId = new Map();
+  for (const row of existingRows) {
+    const id = String(row[0] ?? '').trim();
+    const name = String(row[1] ?? '').trim();
+    if (!id || !name) continue;
+    byId.set(id, [id, name, String(row[2] ?? '')]);
+  }
+  for (const [id, name] of derivedRows) {
+    if (!byId.has(id)) byId.set(id, [id, name, '']);
+  }
+  return [...byId.values()].sort((a, b) => a[1].localeCompare(b[1]));
+}

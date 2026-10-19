@@ -28,3 +28,11 @@ describe('ExerciseIcon',()=>{
   expect(renderToStaticMarkup(<ExerciseIcon exerciseId="unknown"/>)).toBe('');
  });
 });
+
+describe('ExerciseIcon catalogue expansion',()=>{
+ it('renders an illustration for imported pack and generated-svg exercises',()=>{
+  for(const exerciseId of ['assisted-pistol-squat','smith-machine-squat','zottman-curl','ex-3-4-sit-up','barbell-lunge']){
+   expect(renderToStaticMarkup(<ExerciseIcon exerciseId={exerciseId}/>),exerciseId).toContain('<img');
+  }
+ });
+});

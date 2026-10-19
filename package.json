@@ -11,6 +11,8 @@
     "test:e2e": "playwright test",
     "init:sheet": "node scripts/init-sheet.mjs",
     "sync:exercises": "node scripts/sync-exercises.mjs",
+    "import:catalogue": "node scripts/import-exercise-catalogue.mjs",
+    "generate:icons": "node scripts/generate-exercise-icons.mjs",
     "sync:stats": "node scripts/sync-stats.mjs"
   },
   "dependencies": {
